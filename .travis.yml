@@ -9,8 +9,6 @@ before_script:
   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
   - sudo apt-get update -y
   - make ubuntu-packages prepare
-  - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 60
-  - gcc --version
 
 script: make build-all
 

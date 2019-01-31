@@ -13,8 +13,7 @@ ubuntu-packages:
 		libksba-dev \
 		libgtk2.0-dev \
 		libgpgme11-dev \
-		libsqlite3-dev \
-		gcc-8
+		libsqlite3-dev
 
 install-build-deps:
 	cd $(PACKAGE) bundle exec fpm-cook install-build-deps
