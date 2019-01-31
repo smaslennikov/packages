@@ -1,0 +1,7 @@
+.bundle/
+.gems/
+
+*/cache
+*/pkg
+*/tmp-build
+*/tmp-dest
