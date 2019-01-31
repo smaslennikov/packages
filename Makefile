@@ -3,7 +3,7 @@ PLATFORM?=centos
 OPTIONS?=--no-deps
 
 ubuntu-packages:
-	sudo apt-get install \
+	sudo apt-get install -y -q \
 		ruby-dev \
 		ruby-bundler \
 		cmake \

@@ -2,9 +2,11 @@
 dist: xenial
 sudo: required
 
-language: minimal
+language: ruby
+cache: bundler
 
-before-script: make ubuntu-packages
+before_script: sudo apt-get update -y && make ubuntu-packages prepare
+
 script: make build-all
 
 notifications:
