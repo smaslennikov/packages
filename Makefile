@@ -12,7 +12,7 @@ ubuntu-packages:
 		libgcrypt20-dev \
 		libksba-dev \
 		libgtk2.0-dev \
-		libgpgme-dev \
+		libgpgme11-dev \
 		libsqlite3-dev
 
 install-build-deps:

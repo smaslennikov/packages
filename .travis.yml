@@ -2,12 +2,21 @@
 dist: xenial
 sudo: required
 
-language: ruby
+language: minimal
 cache: bundler
 
 before_script: sudo apt-get update -y && make ubuntu-packages prepare
-
 script: make build-all
+
+deploy:
+  provider: releases
+  file_glob: true
+  file: "*/pkg/*rpm"
+  skip_cleanup: true
+  on:
+    tags: true
+  api_key:
+    secure: NKVx0a86PHylZsmgE5JvGTORmbCXddp3RxbJK1AzsWk3+h7Ylyl2Q+/xsD8zbifQ8xrFEkSeoD9NBTGnw6qH81Xr+fmLhIdcOOGVSNpPmFxt9Va6cHbq7HUXybUsPf1JcV5KAPcN3f8+jtCTKyP5GP7MgUZ5rEgsfKSSac15fzH2BuIcXY+U0UfiWWhv47KUncO1R8rG96d0/t3i1Bj9O3SYtp+Ol572rHj7GlYRmiV03BU0mTOvBrEJs5mqIFUSw81DF3ghJsdu2rZelgMKF49wVoi2chSI/aOduN4FhV9SXVw2A0rfHSarA3JUtAIgIv+SkMrpntWVV2s1CbboUBpEezp541OgkBaKkJUoM848iDmAAC7Uq4qsWjzYLw6HbWrc3XYPl7VZUST1pzUa8rWzIWuw03p7y5a3AyZEgM42e9Nj1oDTZJINltj7wq8ZX1fh6mRqYgONEu5OP8yfvtSx+EpofHT9jsUVeIJYqZ9QPLeYTYYke3xN1WTnrengwzK+H+HI9QhCBFi6QggouGmmn1nHE7/j5PG6MNqoMEmCwlljn0X5Edi/8yJOFz2xM2jmzOyKmH0+mfmK/jl5ivAEpFAxLDghcIUCeZQ9x+ZRaRoBux0TM4DbVsRZeZOCCAwpzNgyOA2PJSVUmKrfHEDDm7VLInM1sVW2OZnXk/I=
 
 notifications:
   email:
