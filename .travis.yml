@@ -1,16 +1,13 @@
 ---
 dist: xenial
+language: minimal
 sudo: required
 
-language: minimal
-cache: bundler
-
 before_script:
-  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
   - sudo apt-get update -y
   - make ubuntu-packages prepare
 
-script: make build-all
+script: make travis-build-in-order
 
 deploy:
   provider: releases

@@ -19,13 +19,10 @@ class Libgpgerror < FPM::Cookery::Recipe
                     'libgpg-error-devel'
 
   def build
-    #configure :prefix => prefix, 'disable-install-doc' => true
-    configure
-    make
+    configure :prefix => prefix, 'disable-install-doc' => true
   end
 
   def install
-    #make :install, 'DESTDIR' => destdir
-    make :install
+    make :install, 'DESTDIR' => destdir
   end
 end
