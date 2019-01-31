@@ -1,0 +1,13 @@
+---
+dist: xenial
+sudo: required
+
+language: minimal
+
+before-script: make ubuntu-packages
+script: make build-all
+
+notifications:
+  email:
+    on_success: never
+    on_failure: never
