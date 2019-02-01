@@ -27,7 +27,7 @@ travis-build:
 	for i in libgpg-error \
 			libassuan \
 			libgcrypt18 \
-			libksba; \
+			libksba; do \
 		PACKAGE=$$i PLATFORM=ubuntu $(MAKE) clean build; \
 		sudo dpkg -i $$i/pkg/*deb; \
 	done
