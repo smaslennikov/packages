@@ -22,8 +22,10 @@ class Libgcrypt18 < FPM::Cookery::Recipe
 
   depends           'libgpg-error >= 1.25'
 
-  replaces          'libgcrypt20-dev'
+  replaces          'libgcrypt20-dev',
+                    'libgcrypt20'
   conflicts         'libgcrypt20-dev'
+                    'libgcrypt20'
 
   post_install      'post-install'
 

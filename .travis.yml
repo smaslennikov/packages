@@ -6,7 +6,7 @@ sudo: required
 before_script:
   - sudo apt-get update -y
   - sudo apt-get install -y -q ruby-dev ruby-bundler cmake libsqlite3-dev rpm
-  - sudo apt-get remove libgcrypt20-dev libnpth0 pinentry-curses -y
+  - sudo apt-get remove libgcrypt20-dev libgcrypt20 libnpth0 pinentry-curses -y
   - sudo dpkg -r --force-depends gnupg gpgv
   - bundle install --quiet
 
