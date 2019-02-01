@@ -14,12 +14,9 @@ class Libgpgerror < FPM::Cookery::Recipe
   sha256            'cbd5ee62a8a8c88d48c158fff4fc9ead4132aacd1b4a56eb791f9f997d07e067'
 
   replaces          'libgpg-error',
-                    'libgpg-error-dev',
-                    'libgpg-error-devel'
+                    'libgpg-error-dev'
   conflicts         'libgpg-error',
-                    'libgpg-error-dev',
-                    'libgpg-error-devel'
-  provides          'libgpg-error.so.0()(64bit)'
+                    'libgpg-error-dev'
 
   def build
     configure :prefix => prefix, 'disable-install-doc' => true
