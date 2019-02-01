@@ -20,6 +20,10 @@ class Libassuan < FPM::Cookery::Recipe
   conflicts         'libassuan',
                     'libassuan-devel'
 
+  platforms [:ubuntu] do
+    post_install      'post-install'
+  end
+
   platforms [:centos, :redhat] do
     provides          'libassuan.so.0()(64bit)',
                       'libassuan.so.0(LIBASSUAN_1.0)(64bit)'

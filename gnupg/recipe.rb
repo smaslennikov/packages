@@ -23,6 +23,7 @@ class GnuPG < FPM::Cookery::Recipe
   sha256            'db030f8b4c98640e91300d36d516f1f4f8fe09514a94ea9fc7411ee1a34082cb'
 
   platforms [:ubuntu] do
+    pre_install       'pre-install'
     post_install      'post-install'
   end
 
