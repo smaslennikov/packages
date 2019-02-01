@@ -7,7 +7,7 @@ before_script:
   - sudo apt-get update -y
   - sudo apt-get install -y -q ruby-dev ruby-bundler cmake libsqlite3-dev
   - sudo apt-get remove libnpth0 pinentry-curses -y
-  - sudo dpkg -r --force-depends gnupg
+  - sudo dpkg -r --force-depends gnupg gpgv
   - bundle install --quiet
 
 script:
