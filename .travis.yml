@@ -11,8 +11,10 @@ before_script:
   - bundle install --quiet
 
 script:
-  - make travis-build
-  - make build-all
+  - |
+    set -ex
+    make travis-build
+    make build-all
 
 deploy:
   provider: releases
