@@ -6,6 +6,7 @@ sudo: required
 before_script:
   - sudo apt-get update -y
   - sudo apt-get install -y -q ruby-dev ruby-bundler cmake libsqlite3-dev rpm
+  - sudo apt-get remove libnpth0 -y
   - bundle install --quiet
 
 script:
