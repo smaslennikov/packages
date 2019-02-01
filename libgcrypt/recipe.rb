@@ -16,8 +16,10 @@ class Libgcrypt < FPM::Cookery::Recipe
   depends           'libgpg-error >= 1.25'
 
   replaces          'libgcrypt',
+                    'libgcrypt20-dev',
                     'libgcrypt-devel'
   conflicts         'libgcrypt',
+                    'libgcrypt20-dev',
                     'libgcrypt-devel'
 
   def build
@@ -27,5 +29,8 @@ class Libgcrypt < FPM::Cookery::Recipe
 
   def install
     make :install, 'DESTDIR' => destdir
+
+    # remove info listing in wait of resolution https://github.com/bernd/fpm-cookery/issues/205
+    FileUtils.rm_r(destdir('usr/share/info/'))
   end
 end

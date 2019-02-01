@@ -14,8 +14,10 @@ class Libksba < FPM::Cookery::Recipe
   sha256            '41444fd7a6ff73a79ad9728f985e71c9ba8cd3e5e53358e70d5f066d35c1a340'
 
   replaces          'libksba',
+                    'libksba-dev',
                     'libksba-devel'
   conflicts         'libksba',
+                    'libksba-dev',
                     'libksba-devel'
 
   def build
@@ -25,5 +27,8 @@ class Libksba < FPM::Cookery::Recipe
 
   def install
     make :install, 'DESTDIR' => destdir
+
+    # remove info listing in wait of resolution https://github.com/bernd/fpm-cookery/issues/205
+    FileUtils.rm_r(destdir('usr/share/info/'))
   end
 end

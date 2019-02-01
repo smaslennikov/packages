@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 class GnuPG < FPM::Cookery::Recipe
-  name              'gnupg'
+  name              'gpg'
   description       'GnuPG package for RHEL/CentOS 7'
   maintainer        'Svyatoslav I. Maslennikov <me@smaslennikov.com>'
   section           'main'
@@ -23,8 +23,10 @@ class GnuPG < FPM::Cookery::Recipe
   source            "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-#{version}.tar.bz2"
   sha256            'db030f8b4c98640e91300d36d516f1f4f8fe09514a94ea9fc7411ee1a34082cb'
 
-  replaces          'gnupg2'
-  conflicts         'gnupg2'
+  replaces          'gpg',
+                    'gnupg2'
+  conflicts         'gpg'
+                    'gnupg2'
 
   def build
     configure :prefix => prefix, 'disable-install-doc' => true
@@ -33,5 +35,8 @@ class GnuPG < FPM::Cookery::Recipe
 
   def install
     make :install, 'DESTDIR' => destdir
+
+    # remove info listing in wait of resolution https://github.com/bernd/fpm-cookery/issues/205
+    FileUtils.rm_r(destdir('usr/share/info/'))
   end
 end

@@ -12,7 +12,9 @@ script: make travis-build-in-order
 deploy:
   provider: releases
   file_glob: true
-  file: "*/pkg/*rpm"
+  file:
+    - "*/pkg/*rpm"
+    - "*/pkg/*deb"
   skip_cleanup: true
   on:
     tags: true

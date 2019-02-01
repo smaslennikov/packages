@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 class Ntbtls < FPM::Cookery::Recipe
-  name              'nbtls'
+  name              'ntbtls'
   description       'GnuPG package for RHEL/CentOS 7: ntbtls dependency'
   maintainer        'Svyatoslav I. Maslennikov <me@smaslennikov.com>'
   section           'main'
@@ -33,5 +33,8 @@ class Ntbtls < FPM::Cookery::Recipe
 
   def install
     make :install, 'DESTDIR' => destdir
+
+    # remove info listing in wait of resolution https://github.com/bernd/fpm-cookery/issues/205
+    FileUtils.rm_r(destdir('usr/share/info/'))
   end
 end
