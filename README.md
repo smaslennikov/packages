@@ -8,7 +8,7 @@ This repo contains CentOS packages I frequently need that aren't supplied by EPE
 
 ## Usage
 
-This is a big fat TODO.
+Follow instructions [in the INSTALL.md](INSTALL.md).
 
 ## Testing procedure
 
@@ -19,6 +19,10 @@ Building these packages requires installing some of their dependencies, so as I 
 ## CentOS
 
 I use GPG on a regular basis and primarily use CentOS. Whatever issues arise will be fixed as they're introduced.
+
+## Contributions
+
+...are always welcome!
 
 ## License
 
