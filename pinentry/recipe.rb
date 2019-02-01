@@ -20,8 +20,10 @@ class Pinentry < FPM::Cookery::Recipe
                     'libassuan >= 2.1.0'
 
   replaces          'pinentry',
+                    'pinentry-curses',
                     'pinentry-devel'
   conflicts         'pinentry',
+                    'pinentry-curses',
                     'pinentry-devel'
 
   def build
