@@ -35,6 +35,6 @@ class Pinentry < FPM::Cookery::Recipe
     make :install, 'DESTDIR' => destdir
 
     # remove info listing in wait of resolution https://github.com/bernd/fpm-cookery/issues/205
-    FileUtils.rm_r(destdir('usr/share/info/'))
+    FileUtils.rm_r(destdir('usr/share'))
   end
 end
