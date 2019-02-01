@@ -8,7 +8,7 @@ class Pinentry < FPM::Cookery::Recipe
 
   version           '1.1.0'
   revision          '1'
-  arch              'all'
+  arch              'amd64'
 
   source            "https://gnupg.org/ftp/gcrypt/pinentry/pinentry-#{version}.tar.bz2"
   sha256            '68076686fa724a290ea49cdf0d1c0c1500907d1b759a3bcbfbec0293e8f56570'

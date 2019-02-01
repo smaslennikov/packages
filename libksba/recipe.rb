@@ -8,7 +8,7 @@ class Libksba < FPM::Cookery::Recipe
 
   version           '1.3.5'
   revision          '1'
-  arch              'all'
+  arch              'amd64'
 
   source            "https://gnupg.org/ftp/gcrypt/libksba/libksba-#{version}.tar.bz2"
   sha256            '41444fd7a6ff73a79ad9728f985e71c9ba8cd3e5e53358e70d5f066d35c1a340'

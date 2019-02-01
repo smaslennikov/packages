@@ -8,7 +8,7 @@ class Ntbtls < FPM::Cookery::Recipe
 
   version           '0.1.2'
   revision          '1'
-  arch              'all'
+  arch              'amd64'
 
   source            "https://gnupg.org/ftp/gcrypt/#{name}/#{name}-#{version}.tar.bz2"
   sha256            '8240db84e50c2351b19eb8064bdfd4d25e3c157d37875c62e335df237d7bdce7'

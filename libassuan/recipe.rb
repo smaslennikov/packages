@@ -8,7 +8,7 @@ class Libassuan < FPM::Cookery::Recipe
 
   version           '2.5.2'
   revision          '1'
-  arch              'all'
+  arch              'amd64'
 
   source            "https://gnupg.org/ftp/gcrypt/libassuan/libassuan-#{version}.tar.bz2"
   sha256            '986b1bf277e375f7a960450fbb8ffbd45294d06598916ad4ebf79aee0cb788e7'

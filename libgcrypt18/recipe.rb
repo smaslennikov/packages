@@ -8,7 +8,7 @@ class Libgcrypt18 < FPM::Cookery::Recipe
 
   version           '1.8.4'
   revision          '1'
-  arch              'all'
+  arch              'amd64'
 
   source            "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-#{version}.tar.bz2"
   sha256            'f638143a0672628fde0cad745e9b14deb85dffb175709cacc1f4fe24b93f2227'

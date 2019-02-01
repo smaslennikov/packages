@@ -8,7 +8,7 @@ class GnuPG < FPM::Cookery::Recipe
 
   version           '2.2.12'
   revision          '1'
-  arch              'all'
+  arch              'amd64'
 
   build_depends     'libsqlite3-dev'
 
