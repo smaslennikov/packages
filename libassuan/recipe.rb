@@ -21,13 +21,11 @@ class Libassuan < FPM::Cookery::Recipe
                     'libassuan-devel'
 
   def build
-    #configure :prefix => prefix, 'disable-install-doc' => true
-    configure
+    configure :prefix => prefix, 'disable-install-doc' => true
     make
   end
 
   def install
-    #make :install, 'DESTDIR' => destdir
-    make :install
+    make :install, 'DESTDIR' => destdir
   end
 end

@@ -7,12 +7,6 @@ ubuntu-packages:
 		ruby-dev \
 		ruby-bundler \
 		cmake \
-		libfltk1.3-dev \
-		libassuan-dev \
-		libgcrypt20-dev \
-		libksba-dev \
-		libgtk2.0-dev \
-		libgpgme11-dev \
 		libsqlite3-dev
 
 prepare:
@@ -46,8 +40,6 @@ travis-build-in-order:
 	set -ex; \
 	for i in libgpg-error \
 			libassuan \
-			libgpg-error \
-			libassuan \
 			libgcrypt \
 			gpa \
 			libksba \
@@ -57,3 +49,4 @@ travis-build-in-order:
 			gnupg; do \
 		PACKAGE=$$i $(MAKE) travis-build-install; \
 	done
+	PLATFORM=centos $(MAKE) build-all
