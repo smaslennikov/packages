@@ -31,8 +31,8 @@ travis-build:
 			npth \
 			ntbtls \
 			pinentry \
-			gpgme \
-			gnupg; do \
+			gnupg \
+			gpgme; do \
 		PACKAGE=$$i PLATFORM=ubuntu $(MAKE) clean build; \
 		sudo dpkg -i $$i/pkg/*deb; \
 		cp $$i/pkg/*deb ./; \
