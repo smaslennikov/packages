@@ -20,6 +20,10 @@ class Libksba < FPM::Cookery::Recipe
                     'libksba-dev',
                     'libksba-devel'
 
+  platforms [:centos, :redhat] do
+    provides          'libksba.so.8()(64bit)'
+  end
+
   def build
     configure :prefix => prefix, 'disable-install-doc' => true
     make

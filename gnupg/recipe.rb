@@ -29,7 +29,10 @@ class GnuPG < FPM::Cookery::Recipe
                     'gnupg2'
                     'gpgv'
 
-  provides          'gpg2'
+
+  platforms [:centos, :redhat] do
+    provides          'gpg2'
+  end
 
   def build
     configure :prefix => prefix, 'disable-install-doc' => true

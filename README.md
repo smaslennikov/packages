@@ -1,8 +1,6 @@
 # My Packages [![Build Status](https://travis-ci.org/smaslennikov/packages.svg?branch=master)](https://travis-ci.org/smaslennikov/packages)
 
-This repo contains CentOS packages I frequently need that aren't supplied by EPEL or base repositories.
-
-Ubuntu packages could also be built, but Travis only supports 16.04, while 18.04 has extremely different `provides` requirements. I give up on this.
+This repo contains CentOS packages I frequently need that aren't supplied by EPEL or base repositories. Incidentally, I've had to build Ubuntu packages, which are housed here as well.
 
 ## Binaries
 
@@ -13,6 +11,12 @@ Ubuntu packages could also be built, but Travis only supports 16.04, while 18.04
 Follow instructions [in the INSTALL.md](INSTALL.md).
 
 ## Testing procedure
+
+### Ubuntu
+
+Building these packages requires installing some of their dependencies, so as I build them in Travis CI, I install them all. That means that Travis won't pass unless all packages install successfully. Consider this **my testing apparatus: Travis CI's Ubuntu 16.04**.
+
+## CentOS
 
 I use GPG on a regular basis and primarily use CentOS. Whatever issues arise will be fixed as they're introduced.
 
