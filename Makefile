@@ -41,7 +41,6 @@ travis-build-in-order:
 	for i in libgpg-error \
 			libassuan \
 			libgcrypt \
-			gpa \
 			libksba \
 			npth \
 			ntbtls \
