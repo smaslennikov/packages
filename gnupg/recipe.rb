@@ -22,13 +22,16 @@ class GnuPG < FPM::Cookery::Recipe
   source            "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-#{version}.tar.bz2"
   sha256            'db030f8b4c98640e91300d36d516f1f4f8fe09514a94ea9fc7411ee1a34082cb'
 
+  platforms [:ubuntu] do
+    post_install      'post-install'
+  end
+
   replaces          'gpg',
                     'gnupg2',
                     'gpgv'
   conflicts         'gpg'
                     'gnupg2'
                     'gpgv'
-
 
   platforms [:centos, :redhat] do
     provides          'gpg2'
@@ -41,6 +44,8 @@ class GnuPG < FPM::Cookery::Recipe
 
   def install
     make :install, 'DESTDIR' => destdir
+
+    safesystem "cd #{destdir}/usr/bin && ln -fs gpg gpg2"
 
     # remove info listing in wait of resolution https://github.com/bernd/fpm-cookery/issues/205
     FileUtils.rm_r(destdir('usr/share/info/'))

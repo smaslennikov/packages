@@ -1,0 +1,5 @@
+#!/bin/bash
+
+mkdir -p /lib/x86_64-linux-gnu/
+cd /lib/x86_64-linux-gnu/
+ln -sf libreadline.so.7.0 libreadline.so.6
