@@ -15,11 +15,13 @@ clean:
 			pkg
 
 build-all:
+	set -ex; \
 	for i in $$(find . -name recipe.rb | grep -v .gems | cut -d'/' -f2); do \
 		PACKAGE=$$i $(MAKE) clean build; \
 	done
 
 travis-build:
+	set -ex; \
 	for i in libgpg-error \
 			libassuan \
 			libgcrypt \
@@ -29,5 +31,5 @@ travis-build:
 			pinentry \
 			gnupg; do \
 		PACKAGE=$$i PLATFORM=ubuntu $(MAKE) clean build; \
-		sudo dpkg -i $(PACKAGE)/pkg/*deb; \
+		sudo dpkg -i $$i/pkg/*deb; \
 	done

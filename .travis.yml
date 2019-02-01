@@ -12,7 +12,6 @@ before_script:
 
 script:
   - |
-    set -ex
     make travis-build
     make build-all
 
