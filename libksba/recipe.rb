@@ -19,7 +19,6 @@ class Libksba < FPM::Cookery::Recipe
   conflicts         'libksba',
                     'libksba-dev',
                     'libksba-devel'
-  provides          'libksba.so.8()(64bit)'
 
   def build
     configure :prefix => prefix, 'disable-install-doc' => true

@@ -20,7 +20,6 @@ deploy:
   file_glob: true
   file:
     - "*/pkg/*rpm"
-    - "./*deb"
   skip_cleanup: true
   on:
     tags: true
