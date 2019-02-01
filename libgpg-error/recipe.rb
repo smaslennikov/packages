@@ -19,6 +19,7 @@ class Libgpgerror < FPM::Cookery::Recipe
   conflicts         'libgpg-error',
                     'libgpg-error-dev',
                     'libgpg-error-devel'
+  provides          'libgpg-error.so.0()(64bit)'
 
   def build
     configure :prefix => prefix, 'disable-install-doc' => true
