@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-class Libgcrypt < FPM::Cookery::Recipe
-  name              'libgcrypt'
+class Libgcrypt18 < FPM::Cookery::Recipe
+  name              'libgcrypt18'
   description       'GnuPG package for RHEL/CentOS 7: libgcrypt dependency'
   maintainer        'Svyatoslav I. Maslennikov <me@smaslennikov.com>'
   section           'main'
@@ -15,12 +15,8 @@ class Libgcrypt < FPM::Cookery::Recipe
 
   depends           'libgpg-error >= 1.25'
 
-  replaces          'libgcrypt',
-                    'libgcrypt20-dev',
-                    'libgcrypt-devel'
-  conflicts         'libgcrypt',
-                    'libgcrypt20-dev',
-                    'libgcrypt-devel'
+  replaces          'libgcrypt20-dev'
+  conflicts         'libgcrypt20-dev'
 
   def build
     configure :prefix => prefix, 'disable-install-doc' => true
