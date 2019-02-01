@@ -20,6 +20,8 @@ class Libassuan < FPM::Cookery::Recipe
   conflicts         'libassuan',
                     'libassuan-devel'
 
+  provides          'libassuan.so.0()(64bit)'
+
   def build
     configure :prefix => prefix, 'disable-install-doc' => true
     make

@@ -34,7 +34,7 @@ travis-build:
 	done
 
 generate-installation-docs:
-	echo "Install on CentOS/RHEL (tested on CentOS 7) by acquiring the RPMs and installing them altogether:\n" >> INSTALL.md
+	echo "Install on CentOS/RHEL (tested on CentOS 7) by acquiring the RPMs and installing them altogether:\n" > INSTALL.md
 	echo '```' >> INSTALL.md
 	EXTENSION=rpm $(MAKE) --silent urls >> INSTALL.md
 	echo sudo yum install *.rpm >> INSTALL.md

@@ -29,6 +29,8 @@ class GnuPG < FPM::Cookery::Recipe
                     'gnupg2'
                     'gpgv'
 
+  provides          'gpg2'
+
   def build
     configure :prefix => prefix, 'disable-install-doc' => true
     make
