@@ -19,7 +19,7 @@ clean:
 build-all:
 	set -ex; \
 	for i in $$(find . -name recipe.rb | grep -v .gems | cut -d'/' -f2); do \
-		PACKAGE=$$i $(MAKE) clean build; \
+		PACKAGE=$$i $(MAKE) build; \
 	done
 
 travis-build:
@@ -27,11 +27,7 @@ travis-build:
 	for i in libgpg-error \
 			libassuan \
 			libgcrypt18 \
-			libksba \
-			npth \
-			ntbtls \
-			pinentry \
-			gnupg; do \
+			libksba; \
 		PACKAGE=$$i PLATFORM=ubuntu $(MAKE) clean build; \
 		sudo dpkg -i $$i/pkg/*deb; \
 	done
