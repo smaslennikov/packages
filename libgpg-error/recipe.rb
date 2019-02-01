@@ -24,6 +24,11 @@ class Libgpgerror < FPM::Cookery::Recipe
     provides          'libgpg-error.so.0()(64bit)'
   end
 
+  platforms [:ubuntu] do
+    provides          'libgpg-error0',
+                      'libgpg-error'
+  end
+
   def build
     configure :prefix => prefix, 'disable-install-doc' => true
   end
