@@ -32,4 +32,5 @@ travis-build:
 			gnupg; do \
 		PACKAGE=$$i PLATFORM=ubuntu $(MAKE) clean build; \
 		sudo dpkg -i $$i/pkg/*deb; \
+		cp $$i/pkg/*deb ./; \
 	done
