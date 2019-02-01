@@ -27,8 +27,5 @@ class Npth < FPM::Cookery::Recipe
 
   def install
     make :install, 'DESTDIR' => destdir
-
-    # remove info listing in wait of resolution https://github.com/bernd/fpm-cookery/issues/205
-    FileUtils.rm_r(destdir('usr/share/info/'))
   end
 end
