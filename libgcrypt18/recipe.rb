@@ -29,6 +29,8 @@ class Libgcrypt18 < FPM::Cookery::Recipe
                       'libgcrypt-devel'
   end
 
+  post_install        'post-install'
+
   def build
     configure :prefix => prefix, 'disable-install-doc' => true
     make
