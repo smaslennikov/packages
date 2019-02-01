@@ -15,12 +15,12 @@ class Libgcrypt18 < FPM::Cookery::Recipe
 
   depends           'libgpg-error >= 1.25'
 
-  platforms [:centos, :rhel] do
+  platforms [:ubuntu] do
     replaces          'libgcrypt20-dev'
     conflicts         'libgcrypt20-dev'
   end
 
-  platforms [:ubuntu] do
+  platforms [:centos, :rhel] do
     replaces          'libgcrypt',
                       'libgcrypt20-dev',
                       'libgcrypt-devel'
