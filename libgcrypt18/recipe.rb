@@ -15,8 +15,19 @@ class Libgcrypt18 < FPM::Cookery::Recipe
 
   depends           'libgpg-error >= 1.25'
 
-  replaces          'libgcrypt20-dev'
-  conflicts         'libgcrypt20-dev'
+  platforms [:centos, :rhel] do
+    replaces          'libgcrypt20-dev'
+    conflicts         'libgcrypt20-dev'
+  end
+
+  platforms [:ubuntu] do
+    replaces          'libgcrypt',
+                      'libgcrypt20-dev',
+                      'libgcrypt-devel'
+    conflicts         'libgcrypt',
+                      'libgcrypt20-dev',
+                      'libgcrypt-devel'
+  end
 
   def build
     configure :prefix => prefix, 'disable-install-doc' => true
