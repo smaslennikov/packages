@@ -1,13 +1,7 @@
 #!/usr/bin/env ruby
 
-class Libgcrypt18 < FPM::Cookery::Recipe
-  platforms [:ubuntu] do
-    name              'libgcrypt'
-  end
-
-  platforms [:centos, :rhel] do
-    name              'libgcrypt18'
-  end
+class Libgcrypt20 < FPM::Cookery::Recipe
+  name              'libgcrypt20'
 
   description       'GnuPG package for RHEL/CentOS 7: libgcrypt dependency'
   maintainer        'Svyatoslav I. Maslennikov <me@smaslennikov.com>'

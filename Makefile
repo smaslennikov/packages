@@ -26,7 +26,7 @@ travis-build:
 	set -ex; \
 	for i in libgpg-error \
 			libassuan \
-			libgcrypt18 \
+			libgcrypt20 \
 			libksba \
 			npth \
 			ntbtls \

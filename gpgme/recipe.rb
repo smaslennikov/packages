@@ -11,15 +11,8 @@ class Gpgme < FPM::Cookery::Recipe
   arch              'amd64'
 
 
-  platforms [:ubuntu] do
-    build_depends     'libgcrypt',
-                      'gpg >= 2.2.12'
-  end
-
-  platforms [:centos, :redhat] do
-    build_depends     'libgcrypt18',
-                      'gpg >= 2.2.12'
-  end
+  build_depends     'libgcrypt20',
+                    'gpg >= 2.2.12'
 
   source            "https://gnupg.org/ftp/gcrypt/gpgme/gpgme-#{version}.tar.bz2"
   sha256            'b4dc951c3743a60e2e120a77892e9e864fb936b2e58e7c77e8581f4d050e8cd8'

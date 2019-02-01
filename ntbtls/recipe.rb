@@ -16,19 +16,10 @@ class Ntbtls < FPM::Cookery::Recipe
   build_depends     'libgcrypt',
                     'libksba-dev'
 
-  platforms [:ubuntu] do
-    depends           'libgpg-error >= 1.17',
-                      'libgcrypt',
-                      'libassuan >= 2.5.0',
-                      'npth >= 1.2'
-  end
-
-  platforms [:centos, :redhat] do
-    depends           'libgpg-error >= 1.17',
-                      'libgcrypt18',
-                      'libassuan >= 2.5.0',
-                      'npth >= 1.2'
-  end
+  depends           'libgpg-error >= 1.17',
+                    'libgcrypt20',
+                    'libassuan >= 2.5.0',
+                    'npth >= 1.2'
 
   replaces          'ntbtls',
                     'ntbtls-devel'
