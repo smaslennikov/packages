@@ -17,8 +17,7 @@ class GnuPG < FPM::Cookery::Recipe
                     'libassuan >= 2.5.0',
                     'libksba >= 1.3.4',
                     'npth >= 1.2',
-                    'ntbtls >= 0.1.0',
-                    'sqlite-devel >= 3.0.0'
+                    'ntbtls >= 0.1.0'
 
   source            "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-#{version}.tar.bz2"
   sha256            'db030f8b4c98640e91300d36d516f1f4f8fe09514a94ea9fc7411ee1a34082cb'
