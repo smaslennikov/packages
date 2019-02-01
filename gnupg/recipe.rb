@@ -13,7 +13,7 @@ class GnuPG < FPM::Cookery::Recipe
   build_depends     'libsqlite3-dev'
 
   depends           'libgpg-error >= 1.24',
-                    'libgcrypt >= 1.7.0',
+                    'libgcrypt18',
                     'libassuan >= 2.5.0',
                     'libksba >= 1.3.4',
                     'npth >= 1.2',

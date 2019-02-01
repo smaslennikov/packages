@@ -17,7 +17,7 @@ class Ntbtls < FPM::Cookery::Recipe
                     'libksba-dev'
 
   depends           'libgpg-error >= 1.17',
-                    'libgcrypt >= 1.6.0',
+                    'libgcrypt18',
                     'libassuan >= 2.5.0',
                     'npth >= 1.2'
 
