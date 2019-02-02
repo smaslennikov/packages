@@ -52,6 +52,6 @@ generate-installation-docs:
 	echo '```' >> INSTALL.md
 
 urls:
-	curl https://github.com/smaslennikov/packages/releases/$$(git describe --abbrev=0) | grep $(EXTENSION) | grep -v "strong\|text" | sed -e 's/^.*href="//' -e 's/" rel=.*$$//' | while read line; do \
-		echo wget https://github.com$$line; \
+	for i in *$(EXTENSION); do \
+		echo wget https://github.com/smaslennikov/packages/releases/download/$${TRAVIS_TAG}/$$i; \
 	done

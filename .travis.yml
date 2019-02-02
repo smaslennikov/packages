@@ -15,13 +15,17 @@ script:
     set -ex
     make travis-build
     make build-all
+    cp */pkg/*rpm ./
+    make generate-installation-docs
+    cat INSTALL.md
 
 deploy:
   provider: releases
   file_glob: true
   file:
-    - "*/pkg/*rpm"
+    - "./*rpm"
     - "./*deb"
+    - "INSTALL.md"
   skip_cleanup: true
   on:
     tags: true

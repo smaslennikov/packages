@@ -8,7 +8,7 @@ This repo contains CentOS packages I frequently need that aren't supplied by EPE
 
 ## Usage
 
-Follow instructions [in the INSTALL.md](INSTALL.md). Keep in mind that no warranty is included, and there are **questionable hacks** to get things working smoothly. Here's an incomplete list of issues:
+Follow instructions [in the INSTALL.md of the most current release](https://github.com/smaslennikov/packages/releases). Keep in mind that no warranty is included, and there are **questionable hacks** to get things working smoothly. Here's an incomplete list of issues:
 
 - for Ubuntu we have to [symlink](gnupg/ubuntu-post-install#L5) `libreadline`
 - for CentOS we have to [symlink](gnupg/centos-post-install#L4) `libbz2`
