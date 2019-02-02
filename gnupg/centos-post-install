@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cd /usr/lib64/
+ln -sf libbz2.so.1 libbz2.so.1.0
+
+ldconfig
+
+pkill -9 gpg-agent
+gpg-agent --daemon
