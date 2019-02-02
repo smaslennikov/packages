@@ -1,7 +1,14 @@
 #!/usr/bin/env ruby
 
 class Libgpgerror < FPM::Cookery::Recipe
-  name              'libgpg-error'
+  platforms [:centos, :redhat] do
+    name              'libgpg-error'
+  end
+
+  platforms [:ubuntu] do
+    name              'libgpg-error0'
+  end
+
   description       'GnuPG package for RHEL/CentOS 7: libgpg-error dependency'
   maintainer        'Svyatoslav I. Maslennikov <me@smaslennikov.com>'
   section           'main'

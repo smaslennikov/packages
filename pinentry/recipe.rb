@@ -16,8 +16,15 @@ class Pinentry < FPM::Cookery::Recipe
   build_depends     'libfltk1.3-dev',
                     'libassuan >= 2.1.0'
 
-  depends           'libgpg-error >= 1.16',
-                    'libassuan >= 2.1.0'
+  platforms [:ubuntu] do
+    depends           'libgpg-error0 >= 1.16',
+                      'libassuan >= 2.1.0'
+  end
+
+  platforms [:centos, :redhat] do
+    depends           'libgpg-error >= 1.16',
+                      'libassuan >= 2.1.0'
+  end
 
   replaces          'pinentry',
                     'pinentry-curses',

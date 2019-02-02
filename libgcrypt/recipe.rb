@@ -14,7 +14,13 @@ class Libgcrypt20 < FPM::Cookery::Recipe
   source            "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-#{version}.tar.bz2"
   sha256            'f638143a0672628fde0cad745e9b14deb85dffb175709cacc1f4fe24b93f2227'
 
-  depends           'libgpg-error >= 1.25'
+  platforms [:ubuntu] do
+    depends           'libgpg-error0 >= 1.25'
+  end
+
+  platforms [:centos, :redhat] do
+    depends           'libgpg-error >= 1.25'
+  end
 
   replaces          'libgcrypt20-dev',
                     'libgcrypt20'

@@ -12,13 +12,25 @@ class GnuPG < FPM::Cookery::Recipe
 
   build_depends     'libsqlite3-dev'
 
-  depends           'libgpg-error >= 1.24',
-                    'libgcrypt20',
-                    'libassuan >= 2.5.0',
-                    'libksba >= 1.3.4',
-                    'npth >= 1.2',
-                    'ntbtls >= 0.1.0',
-                    'bzip2-devel', 'bzip2-libs'
+  platforms [:centos] do
+    depends           'libgpg-error >= 1.24',
+                      'libgcrypt20',
+                      'libassuan >= 2.5.0',
+                      'libksba >= 1.3.4',
+                      'npth >= 1.2',
+                      'ntbtls >= 0.1.0',
+                      'bzip2-devel', 'bzip2-libs'
+  end
+
+  platforms [:ubuntu] do
+    depends           'libgpg-error0 >= 1.24',
+                      'libgcrypt20',
+                      'libassuan >= 2.5.0',
+                      'libksba >= 1.3.4',
+                      'npth >= 1.2',
+                      'ntbtls >= 0.1.0',
+                      'bzip2-devel', 'bzip2-libs'
+  end
 
   source            "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-#{version}.tar.bz2"
   sha256            'db030f8b4c98640e91300d36d516f1f4f8fe09514a94ea9fc7411ee1a34082cb'

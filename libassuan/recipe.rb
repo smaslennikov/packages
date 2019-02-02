@@ -13,7 +13,13 @@ class Libassuan < FPM::Cookery::Recipe
   source            "https://gnupg.org/ftp/gcrypt/libassuan/libassuan-#{version}.tar.bz2"
   sha256            '986b1bf277e375f7a960450fbb8ffbd45294d06598916ad4ebf79aee0cb788e7'
 
-  depends           'libgpg-error >= 1.17'
+  platforms [:ubuntu] do
+    depends           'libgpg-error0 >= 1.17'
+  end
+
+  platforms [:centos, :redhat] do
+    depends           'libgpg-error >= 1.17'
+  end
 
   replaces          'libassuan',
                     'libassuan-devel'
