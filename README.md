@@ -8,23 +8,30 @@ This repo contains CentOS packages I frequently need that aren't supplied by EPE
 
 ## Usage
 
-Follow instructions [in the INSTALL.md](INSTALL.md). Keep in mind that no warranty is included, and there are **seriously janky decisions throughout**, thankfully for Ubuntu only. Here's an incomplete list:
+Follow instructions [in the INSTALL.md](INSTALL.md). Keep in mind that no warranty is included, and there are **questionable hacks** to get things working smoothly. Here's an incomplete list of issues:
 
-- in legacy Ubuntu we depend on [forcefully removing several packages](.travis.yml#L10)
-- packages don't neatly upgrade old ones in Ubuntu - PRs welcome
-- in legacy Ubuntu we have to [symlink](gnupg/post-install#L5) `libreadline`, even though we don't touch it
-- in legacy Ubuntu we have to [remove](libassuan/post-install#L3) all old `libassuan` files, and I don't know where they come from (no package is responsible afaict)
-- in legacy Ubuntu we have to [remove](libksba/post-install#L3) all old `libksba` files, and I don't know where they come from (no package is responsible afaict)
+- for Ubuntu we have to [symlink](gnupg/ubuntu-post-install#L5) `libreadline`
+- for CentOS we have to [symlink](gnupg/centos-post-install#L4) `libbz2`
+- for the following packages we ignore `usr/share/info/` because [I don't know how to share it between packages properly](https://github.com/bernd/fpm-cookery/issues/205)
+    - `gnupg`
+    - `pinentry`
+    - `libassuan`
+    - `libgpg-error`
+    - `libgcrypt`
+    - `gpgme`
+    - `libksba`
+- for Ubuntu we have to [remove](libassuan/post-install#L3) all old `libassuan` files
+- for Ubuntu we have to [remove](libksba/post-install#L3) all old `libksba` files
 
 ## Testing procedure
 
 ### Ubuntu
 
-Building these packages requires installing some of their dependencies, so as I build them in Travis CI, I install them all. That means that Travis won't pass unless all packages install successfully. Consider this **my testing apparatus: Travis CI's Ubuntu 16.04**.
+Tested in bare Ubuntu 16.04 and 18.04.
 
 ## CentOS
 
-I use GPG on a regular basis and primarily use CentOS. Whatever issues arise will be fixed as they're introduced.
+Tested on CentOS 7.
 
 ## Contributions
 
