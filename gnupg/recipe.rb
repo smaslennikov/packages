@@ -28,8 +28,7 @@ class GnuPG < FPM::Cookery::Recipe
                       'libassuan >= 2.5.0',
                       'libksba >= 1.3.4',
                       'npth >= 1.2',
-                      'ntbtls >= 0.1.0',
-                      'bzip2-devel', 'bzip2-libs'
+                      'ntbtls >= 0.1.0'
   end
 
   source            "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-#{version}.tar.bz2"
