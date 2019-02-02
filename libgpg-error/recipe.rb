@@ -25,8 +25,9 @@ class Libgpgerror < FPM::Cookery::Recipe
   end
 
   platforms [:ubuntu] do
-    provides          'libgpg-error0',
-                      'libgpg-error'
+    provides          'libgpg-error',
+                      'libgpg-error-dev',
+                      'libgpg-error0'
   end
 
   def build
