@@ -43,7 +43,6 @@ generate-installation-docs:
 	echo "Install on Ubuntu (tested on 16.04 and 18.04) by acquiring the DEBs and installing them altogether:\n" >> INSTALL.md
 	echo '```' >> INSTALL.md
 	EXTENSION=deb $(MAKE) --silent urls >> INSTALL.md
-	echo 'sudo dpkg -r --force-depends libgpg-error0' >> INSTALL.md
 	echo sudo dpkg -i *.deb >> INSTALL.md
 	echo '```\n' >> INSTALL.md
 	echo "Install on CentOS/RHEL (tested on CentOS 7) by acquiring the RPMs and installing them altogether:\n" >> INSTALL.md
