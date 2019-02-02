@@ -20,6 +20,8 @@ class Gpgme < FPM::Cookery::Recipe
   replaces          'gpgme'
   conflicts         'gpgme'
 
+  pre_install       'pre-install'
+
   platforms [:centos, :redhat] do
     provides          'libgpgme.so.11()(64bit)',
                       'libgpgme.so.11(GPGME_1.0)(64bit)',

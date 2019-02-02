@@ -20,6 +20,10 @@ class Libksba < FPM::Cookery::Recipe
                     'libksba-dev',
                     'libksba-devel'
 
+  platforms [:ubuntu] do
+    post_install      'post-install'
+  end
+
   platforms [:centos, :redhat] do
     provides          'libksba.so.8()(64bit)'
   end
