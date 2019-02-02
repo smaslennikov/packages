@@ -8,7 +8,13 @@ This repo contains CentOS packages I frequently need that aren't supplied by EPE
 
 ## Usage
 
-Follow instructions [in the INSTALL.md](INSTALL.md).
+Follow instructions [in the INSTALL.md](INSTALL.md). Keep in mind that no warranty is included, and there are **seriously janky decisions throughout**, thankfully for Ubuntu only. Here's an incomplete list:
+
+- in legacy Ubuntu we depend on [forcefully removing several packages](.travis.yml#L10)
+- packages don't neatly upgrade old ones in Ubuntu - PRs welcome
+- in legacy Ubuntu we have to [symlink](gnupg/post-install#L5) `libreadline`, even though we don't touch it
+- in legacy Ubuntu we have to [remove](libassuan/post-install#L3) all old `libassuan` files, and I don't know where they come from (no package is responsible afaict)
+- in legacy Ubuntu we have to [remove](libksba/post-install#L3) all old `libksba` files, and I don't know where they come from (no package is responsible afaict)
 
 ## Testing procedure
 
