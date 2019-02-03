@@ -17,7 +17,7 @@ script:
     make build-all
     cp */pkg/*rpm ./
     make generate-installation-docs
-    export BODY=$(cat INSTALL.md)
+    cat INSTALL.md
 
 deploy:
   provider: releases
@@ -26,7 +26,6 @@ deploy:
     - "./*rpm"
     - "./*deb"
     - "INSTALL.md"
-  body: ${BODY}
   skip_cleanup: true
   on:
     tags: true
