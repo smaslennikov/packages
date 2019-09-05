@@ -7,7 +7,7 @@ class GnuPG < FPM::Cookery::Recipe
   section           'main'
 
   version           '2.2.12'
-  revision          '1'
+  revision          '2'
   arch              'amd64'
 
   build_depends     'libsqlite3-dev'
@@ -45,10 +45,14 @@ class GnuPG < FPM::Cookery::Recipe
 
   replaces          'gpg',
                     'gnupg2',
-                    'gpgv'
-  conflicts         'gpg'
-                    'gnupg2'
-                    'gpgv'
+                    'gpgv',
+                    'gpgconf',
+                    'gpgsm'
+  conflicts         'gpg',
+                    'gnupg2',
+                    'gpgv',
+                    'gpgconf',
+                    'gpgsm'
 
   platforms [:centos, :redhat] do
     provides          'gpg2'
@@ -56,8 +60,10 @@ class GnuPG < FPM::Cookery::Recipe
 
   platforms [:ubuntu] do
     provides          'gpg2',
+                      'gnupg',
                       'gpgv',
-                      'gnupg'
+                      'gpgconf',
+                      'gpgsm'
   end
 
   def build
