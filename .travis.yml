@@ -1,7 +1,7 @@
 ---
+os: linux
 dist: xenial
-language: minimal
-sudo: required
+language: shell
 
 before_script:
   - sudo apt-get update -y
@@ -26,10 +26,10 @@ deploy:
     - "./*rpm"
     - "./*deb"
     - "INSTALL.md"
-  skip_cleanup: true
+  cleanup: false
   on:
     tags: true
-  api_key:
+  token:
     secure: ir7r1FiQiPwwe+Nm6EFE/n2GF+GXzNqQr1T8PFtxbKEZH+/HW+Bjm51+AcN+V2x0xhd7phZbLEzmm0xpTenJHrKhqvQjLONnsSfR21971YWacpqE9QnJP90CzPMdYn4jHFVOuWQ9mTjCWuCiQ2i2C6LKGeIG3AtveVbKNtNxwwT9LkrozdNfumpPiLz2oPZ98xLHIK8FXhpnAwnvx1PABksi2MUTPbgKMPFEfROBAzuCfUpf3v1OqKcnq/6tJ+W6NjzwjOzKa5SfM2tU5Vj8XUs9UphIAYaOpXYsHTuTVc4jbzOcBqzOms6qIFx5Honby3Ih2CWbqxf9LNLJj0PO4O8YEr9eCfRNUjf8t0y0TOwx1w4TmY5Dsw9HiKEIFjS2S8FzI84uqwukLPK49niDT+3oP19/k9ZBn5u4DIpBIKHTE7Ja1AVXPrcQFtG1W8bJOt3NeIDzyPzHS71FCc+RYgfiuzQzlmDy3BusH4ujyKJdVxAR/nSF14X1V7m59ZMCQnF+tl2Sdl13xEtj4fvxQ8iRYe/t1W4LrXx43FDf9vzKmgj0CjiBESYU3i6uqfpHsEVTX9pbybhMzPemTCUms+AsvME4YTG0ZHrd96HqCJC5NFKmC4cX4Ma3SX05hjYz1I+Gw98pTS+vTbpZv5NON3FH61iHvwGrqQx0HKYYQDM=
 
 notifications:
