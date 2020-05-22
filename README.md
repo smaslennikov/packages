@@ -1,4 +1,4 @@
-# My Packages [![Build Status](https://travis-ci.org/smaslennikov/packages.svg?branch=master)](https://travis-ci.org/smaslennikov/packages)
+# My Packages [![Build Status](https://travis-ci.com/smaslennikov/packages.svg?branch=master)](https://travis-ci.com/smaslennikov/packages)
 
 This repo contains CentOS packages I frequently need that aren't supplied by EPEL or base repositories. Incidentally, I've had to build Ubuntu packages, which are housed here as well.
 
