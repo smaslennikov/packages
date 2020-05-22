@@ -1,36 +1,36 @@
----
 os: linux
 dist: xenial
 language: shell
 
 before_script:
-  - sudo apt-get update -y
-  - sudo apt-get install -y -q ruby-dev ruby-bundler cmake libsqlite3-dev rpm
-  - sudo apt-get remove libnpth0 pinentry-curses -y
-  - sudo dpkg -r --force-depends libgpg-error0 gnupg gpgv
-  - bundle install --quiet
+- sudo apt-get update -y
+- sudo apt-get install -y -q ruby-dev ruby-bundler cmake libsqlite3-dev rpm
+- sudo apt-get remove libnpth0 pinentry-curses -y
+- sudo dpkg -r --force-depends libgpg-error0 gnupg gpgv
+- bundle install --quiet
 
 script:
-  - |
-    set -ex
-    make travis-build
-    make build-all
-    cp */pkg/*rpm ./
-    make generate-installation-docs
-    cat INSTALL.md
+- |
+  set -ex
+  make travis-build
+  make build-all
+  cp */pkg/*rpm ./
+  make generate-installation-docs
+  cat INSTALL.md
 
 deploy:
   provider: releases
   file_glob: true
   file:
-    - "./*rpm"
-    - "./*deb"
-    - "INSTALL.md"
-  cleanup: false
+  - "./*rpm"
+  - "./*deb"
+  - "INSTALL.md"
+  api_key:
+    secure: rzRltiidy8RG6HeN/aSzj7OIVrXJs77ezRq9gIE/fabxcOf8U1o328H1l7aTFlxFS9WDvB9AddFoIaGhrP559CYghtSPjo2yd2xZT2+DX8dJKApboypinjZDgMju0YMI7YGcP5fyNMHtBfSAH0XIpGjLBg0Mq3o11c8x/MjVIKV+MzhS4zO7+6y1fpRoq8rZP/RfN20hMaeqlV/vdIBrXkZHDqbZJMGUqV2hLOijbE4ZbFXioHWq2wDNMFAHnBjCGrcOwz8KqcxB//JbuGGezRBLdNZ5Rq0XEMEIVz7Ei8ElumhXTphtlk9uscmlltwLkMZFf1ZGuf+HW2IMwDm9rth7jkrrCaMIo14fAuNgRcJT58SQe7dJx6FBoYZdeVCeWWD8sSFzl1p4c0YEkddGVEOu0lJJCGdl1Jhqpj0GMT64VrtH8ipctMkgkWtHHvAz8WNpkh6nsx3jYBMrV6jGPqMfbd7HD9tJj4EmNJeIr5bWRax16UpTkg7uM7UzqsDuPIxSHB4CVjMNT5L97APY396TVDJ43v/GaMp06MQxXGyISPeWDzsLdYOhBko23N1QYAuDAZMCrg2gkOhfVS29ptfc9qMkJ4Fs7Rv/GFyEWhPl6Lpy/EA+voOKPI5WVn6YNw+YCdgj/+tK/TRVfZdmqhKv7zyFL1Dvj7IQcU1n+P8=
   on:
+    repo: smaslennikov/packages
     tags: true
-  token:
-    secure: ir7r1FiQiPwwe+Nm6EFE/n2GF+GXzNqQr1T8PFtxbKEZH+/HW+Bjm51+AcN+V2x0xhd7phZbLEzmm0xpTenJHrKhqvQjLONnsSfR21971YWacpqE9QnJP90CzPMdYn4jHFVOuWQ9mTjCWuCiQ2i2C6LKGeIG3AtveVbKNtNxwwT9LkrozdNfumpPiLz2oPZ98xLHIK8FXhpnAwnvx1PABksi2MUTPbgKMPFEfROBAzuCfUpf3v1OqKcnq/6tJ+W6NjzwjOzKa5SfM2tU5Vj8XUs9UphIAYaOpXYsHTuTVc4jbzOcBqzOms6qIFx5Honby3Ih2CWbqxf9LNLJj0PO4O8YEr9eCfRNUjf8t0y0TOwx1w4TmY5Dsw9HiKEIFjS2S8FzI84uqwukLPK49niDT+3oP19/k9ZBn5u4DIpBIKHTE7Ja1AVXPrcQFtG1W8bJOt3NeIDzyPzHS71FCc+RYgfiuzQzlmDy3BusH4ujyKJdVxAR/nSF14X1V7m59ZMCQnF+tl2Sdl13xEtj4fvxQ8iRYe/t1W4LrXx43FDf9vzKmgj0CjiBESYU3i6uqfpHsEVTX9pbybhMzPemTCUms+AsvME4YTG0ZHrd96HqCJC5NFKmC4cX4Ma3SX05hjYz1I+Gw98pTS+vTbpZv5NON3FH61iHvwGrqQx0HKYYQDM=
+  skip_cleanup: 'true'
 
 notifications:
   email:
